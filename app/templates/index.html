@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>OCR platform</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/app.css'%}">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+</head>
+
+<body>
+    <div class="content">Công cụ chuyển đổi file ảnh trực tuyến<br />
+        <span>By Nguyễn Phạm Quang Tuệ : 1420156</span><br />
+        <span>Chuyển đổi trực tuyến file ảnh ra file txt</span>
+    </div>
+    <div class="box-add">
+        <p class="title">SELECT FILES TO THIS PAGE</p>
+        <div class="button-upload">
+            <div class="button-icon">
+                <span>From computer</span>
+                <input type="file" id="file1" name="image" accept="image/*" capture style="display:none" oninput="app.upload('{% static '' %}')" />
+                <!-- {{form}} -->
+                <img id="upfile1" src="{% static 'computer-screen.png' %}" />
+            </div>
+        </div>
+    </div>
+    <div class="resutls"></div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/g/filesaver.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+<script type="text/javascript" src="{% static 'js/app.js' %}"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        app.init('{% static '' %}');
+    });
+</script>
+</html>
